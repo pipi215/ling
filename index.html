@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>席凌飞 · 测试工程师</title>
+<meta name="description" content="席凌飞 / Ling — 9 年测试工程师，专注接口测试、性能测试与质量保障。Jmeter / Charles / Jira / Python 自动化。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308080a'/%3E%3Crect x='1' y='1' width='62' height='62' rx='13' fill='none' stroke='%235c8cff' stroke-opacity='.35'/%3E%3Ctext x='32' y='44' font-family='JetBrains Mono, monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%235c8cff'%3EL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- ambient glow -->
+<div class="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ====== TITLEBAR ====== -->
+<header class="titlebar">
+  <div class="tb-left">
+    <span class="traffic">
+      <i class="dot red"></i><i class="dot yellow"></i><i class="dot green"></i>
+    </span>
+    <span class="brand" aria-hidden="true">L</span>
+    <nav class="crumbs" aria-label="路径">
+      <span class="crumb">ling</span>
+      <span class="sep">/</span>
+      <span class="crumb active">home.md</span>
+    </nav>
+  </div>
+  <div class="tb-right">
+    <a class="tb-hire" href="#contact" title="Replies within 24h">
+      <span class="hdot"></span><span data-i18n="hire">Open to remote</span>
+    </a>
+    <div class="langsel" id="langsel">
+      <button class="lang-btn" id="langBtn" aria-label="语言 / Language">
+        <span class="lang-current" id="langCurrent">中</span>
+        <span class="lang-caret">▾</span>
+      </button>
+      <ul class="lang-menu" id="langMenu">
+        <li><button data-lang="zh">中文</button></li>
+        <li><button data-lang="en">English</button></li>
+        <li><button data-lang="ja">日本語</button></li>
+        <li><button data-lang="ko">한국어</button></li>
+      </ul>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="切换主题" aria-label="切换主题">
+      <span class="ico-moon">🌙</span><span class="ico-sun">☀</span>
+    </button>
+  </div>
+</header>
+
+<!-- ====== TABSTRIP ====== -->
+<nav class="tabstrip" aria-label="主导航">
+  <a class="tab active" data-route="home" href="#home">
+    <span class="fdot md"></span><span>home.md</span>
+  </a>
+  <a class="tab newapi-tab" data-route="new-api" href="https://ling.vn.com/" target="_blank" rel="noopener">
+    <span class="fdot sh"></span><span>new-api</span>
+    <span class="ext">↗</span>
+  </a>
+  <a class="tab" data-route="about" href="#about">
+    <span class="fdot md"></span><span>about.md</span>
+  </a>
+  <a class="tab" data-route="skills" href="#skills">
+    <span class="fdot json"></span><span>skills.json</span>
+  </a>
+  <a class="tab" data-route="experience" href="#experience">
+    <span class="fdot md"></span><span>work.md</span>
+  </a>
+  <a class="tab" data-route="projects" href="#projects">
+    <span class="fdot json"></span><span>projects/</span>
+  </a>
+  <a class="tab" data-route="contact" href="#contact">
+    <span class="fdot md"></span><span>contact.md</span>
+  </a>
+</nav>
+
+<!-- ====== LAYOUT: RAIL + EDITOR ====== -->
+<div class="layout">
+
+  <!-- file tree rail -->
+  <aside class="rail" aria-label="文件树">
+    <div class="rail-head">EXPLORER</div>
+    <div class="tree">
+      <div class="tfolder open"><span class="tri">▾</span> LING</div>
+      <div class="tree-inner">
+        <a class="tfile active" href="#home"><span class="fdot md"></span> home.md</a>
+        <a class="tfile newapi" href="https://ling.vn.com/" target="_blank" rel="noopener"><span class="fdot sh"></span> new-api <span class="ext">↗</span></a>
+        <a class="tfile" href="#about"><span class="fdot md"></span> about.md</a>
+        <a class="tfile" href="#skills"><span class="fdot json"></span> skills.json</a>
+        <a class="tfile" href="#experience"><span class="fdot md"></span> work.md</a>
+        <a class="tfile" href="#projects"><span class="fdot json"></span> projects/</a>
+        <a class="tfile" href="#contact"><span class="fdot md"></span> contact.md</a>
+      </div>
+    </div>
+      <div class="rail-foot">
+      <div class="kv"><span>OUTLINE</span></div>
+      <a class="outline-link" href="#hero" data-i18n="outline_hero">▸ 简介</a>
+      <a class="outline-link" href="#advantages" data-i18n="outline_adv">▸ 个人优势</a>
+      <a class="outline-link" href="#stats" data-i18n="outline_stats">▸ 数据</a>
+      <a class="outline-link" href="#skills" data-i18n="outline_skills">▸ 技能栈</a>
+      <a class="outline-link" href="#experience" data-i18n="outline_exp">▸ 工作经历</a>
+      <a class="outline-link" href="#projects" data-i18n="outline_proj">▸ 项目经历</a>
+      <a class="outline-link" href="#contact" data-i18n="outline_contact">▸ 联系方式</a>
+    </div>
+  </aside>
+
+  <!-- editor area -->
+  <main class="editor">
+
+    <!-- HERO -->
+    <section id="hero" class="block hero">
+      <div class="hero-body">
+        <div class="hero-left">
+          <div class="hero-text">
+            <h1 data-i18n="name">席凌飞</h1>
+            <p class="pinyin">Xí Líng Fēi</p>
+            <div class="chips">
+              <span class="chip"><span class="cicon">⚡</span><span data-i18n="chip_jmeter">Jmeter 接口/性能</span></span>
+              <span class="chip"><span class="cicon">📡</span><span data-i18n="chip_charles">Charles 抓包/弱网</span></span>
+              <span class="chip"><span class="cicon">🐍</span><span data-i18n="chip_python">Python 自动化</span></span>
+              <span class="chip"><span class="cicon">🐞</span><span data-i18n="chip_jira">Jira 缺陷管理</span></span>
+              <span class="chip"><span class="cicon">🐧</span><span data-i18n="chip_linux">Linux / MySQL</span></span>
+              <span class="chip"><span class="cicon">⛓️</span><span data-i18n="chip_web3">Web3 交易所</span></span>
+          </div>
+            <p class="lede" data-i18n="lede">9 年测试工程师，专注接口测试、性能测试与质量保障全流程。覆盖 Web3 交易所、链上交易工具、在线教育与跨境电商等多领域，熟练运用 Jmeter、Charles、Jira、Python 等工具，把回归交给自动化，把判断留给人。</p>
+            <div class="cta">
+              <a class="btn primary" href="#contact" data-i18n="btn_contact">联系我</a>
+              <a class="btn ghost" href="#experience" data-i18n="btn_exp">查看工作经历</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="code-card">
+            <div class="code-card-head">
+              <span class="traffic sm"><i class="dot red"></i><i class="dot yellow"></i><i class="dot green"></i></span>
+              <span class="cc-title">ling.js</span>
+            </div>
+            <div class="code-card-body">
+              <div class="line-meta"><span class="ln">1</span><span class="code"><span class="c-key">const</span> <span class="c-var">ling</span> = {</span></div>
+              <div class="line-meta"><span class="ln">2</span><span class="code indent">name: <span class="c-str">"席凌飞"</span>,</span></div>
+              <div class="line-meta"><span class="ln">3</span><span class="code indent">role: <span class="c-str" data-i18n="code_role">"测试工程师"</span>,</span></div>
+              <div class="line-meta"><span class="ln">4</span><span class="code indent">exp: <span class="c-num">9</span>, <span class="c-com" data-i18n="code_years">// years</span></span></div>
+              <div class="line-meta"><span class="ln">5</span><span class="code indent">city: <span class="c-str" data-i18n="code_city">"杭州"</span>,</span></div>
+              <div class="line-meta"><span class="ln">6</span><span class="code indent">stack: [<span class="c-str">"Jmeter"</span>, <span class="c-str" data-i18n="code_stack">"接口/性能"</span>, <span class="c-str">"Charles"</span>],</span></div>
+              <div class="line-meta"><span class="ln">7</span><span class="code indent">domain: <span class="c-str" data-i18n="code_domain">"Web3 / 教育 / 电商"</span>,</span></div>
+              <div class="line-meta"><span class="ln">8</span><span class="code">};</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW-API HIGHLIGHT (导航首项的延伸展示) -->
+    <section id="newapi" class="block newapi-card-wrap">
+      <a class="newapi-card" href="https://ling.vn.com/" target="_blank" rel="noopener">
+        <div class="appicon g-cyber">
+          <span class="ai-glyph">🜲</span>
+          <span class="appicon-ring"></span>
+        </div>
+        <div class="np-text">
+          <div class="np-title">lin.ai <span class="np-tag" data-i18n="np_tag">在线服务</span></div>
+          <div class="np-sub" data-i18n="np_sub">AI 模型聚合网关 · 多渠道 key 管理 · ling.vn.com</div>
+        </div>
+        <div class="np-arrow">↗</div>
+      </a>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="stats_title">数据 / Stats</span></h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-num">9+</div><div class="stat-label" data-i18n="stat_exp">年测试经验</div></div>
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat_companies">家公司 / 行业</div></div>
+        <div class="stat"><div class="stat-num">Web3</div><div class="stat-label" data-i18n="stat_web3">交易所 / 链上工具</div></div>
+        <div class="stat"><div class="stat-num" data-i18n="stat_bachelor">本科</div><div class="stat-label" data-i18n="stat_major">计算机科学与技术</div></div>
+      </div>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section id="advantages" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="adv_title">个人优势 / Advantages</span></h2>
+      <div class="adv-grid">
+        <div class="adv-card" style="--hue:210">
+          <div class="adv-ico">①</div>
+          <div class="adv-t" data-i18n="adv1_t">测试理论与流程</div>
+          <div class="adv-d" data-i18n="adv1_d">深入理解测试理论、方法和流程，能独立制定测试方案、测试用例与测试报告，运用 Xmind 提取测试点。</div>
+        </div>
+        <div class="adv-card" style="--hue:265">
+          <div class="adv-ico">②</div>
+          <div class="adv-t" data-i18n="adv2_t">接口与性能测试</div>
+          <div class="adv-d" data-i18n="adv2_d">熟悉 Jmeter 接口测试与性能测试，覆盖接口自动化、压力测试与瓶颈定位。</div>
+        </div>
+        <div class="adv-card" style="--hue:330">
+          <div class="adv-ico">③</div>
+          <div class="adv-t" data-i18n="adv3_t">抓包与弱网</div>
+          <div class="adv-d" data-i18n="adv3_d">熟练使用 Charles / Fiddler 抓包定位问题，进行弱网测试与前端联调分析。</div>
+        </div>
+        <div class="adv-card" style="--hue:15">
+          <div class="adv-ico">④</div>
+          <div class="adv-t" data-i18n="adv4_t">缺陷管理</div>
+          <div class="adv-d" data-i18n="adv4_d">熟练使用 Jira / 禅道进行缺陷管理与测试用例管理，跟踪 Bug 全生命周期。</div>
+        </div>
+        <div class="adv-card" style="--hue:160">
+          <div class="adv-ico">⑤</div>
+          <div class="adv-t" data-i18n="adv5_t">Linux / 数据库</div>
+          <div class="adv-d" data-i18n="adv5_d">熟练运用 Linux 常用命令操作；熟悉 MySQL / Oracle 增删改查与后台数据校验。</div>
+        </div>
+        <div class="adv-card" style="--hue:90">
+          <div class="adv-ico">⑥</div>
+          <div class="adv-t" data-i18n="adv6_t">自动化</div>
+          <div class="adv-d" data-i18n="adv6_d">了解 Selenium 自动化测试工具，结合 Python 实现部分功能的自动化测试。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="skills_title">技能栈 / Skills</span></h2>
+
+      <div class="skill-group">
+        <div class="sg-head"><span class="fdot json"></span> testing.json</div>
+        <div class="skill-list">
+          <div class="skill c1"><span class="s-name"><span class="sicon">⚡</span><span data-i18n="sk1">Jmeter 接口测试</span></span><span class="bar"><i style="width:92%"></i></span><span class="s-pct">92</span></div>
+          <div class="skill c2"><span class="s-name"><span class="sicon">🔥</span><span data-i18n="sk2">Jmeter 性能测试</span></span><span class="bar"><i style="width:88%"></i></span><span class="s-pct">88</span></div>
+          <div class="skill c3"><span class="s-name"><span class="sicon">🧠</span><span data-i18n="sk3">测试用例设计 / Xmind</span></span><span class="bar"><i style="width:90%"></i></span><span class="s-pct">90</span></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-head"><span class="fdot sh"></span> debug.sh</div>
+        <div class="skill-list">
+          <div class="skill c4"><span class="s-name"><span class="sicon">📡</span><span data-i18n="sk4">Charles 抓包 / 弱网</span></span><span class="bar"><i style="width:88%"></i></span><span class="s-pct">88</span></div>
+          <div class="skill c5"><span class="s-name"><span class="sicon">🔍</span><span data-i18n="sk5">Fiddler 抓包定位</span></span><span class="bar"><i style="width:82%"></i></span><span class="s-pct">82</span></div>
+          <div class="skill c6"><span class="s-name"><span class="sicon">🐞</span><span data-i18n="sk6">Jira / 禅道 缺陷管理</span></span><span class="bar"><i style="width:90%"></i></span><span class="s-pct">90</span></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-head"><span class="fdot md"></span> infra.md</div>
+        <div class="skill-list">
+          <div class="skill c7"><span class="s-name"><span class="sicon">🐧</span><span data-i18n="sk7">Linux 常用命令</span></span><span class="bar"><i style="width:85%"></i></span><span class="s-pct">85</span></div>
+          <div class="skill c8"><span class="s-name"><span class="sicon">🗄️</span><span data-i18n="sk8">MySQL / Oracle 数据校验</span></span><span class="bar"><i style="width:84%"></i></span><span class="s-pct">84</span></div>
+          <div class="skill c9"><span class="s-name"><span class="sicon">🐍</span><span data-i18n="sk9">Python + Selenium 自动化</span></span><span class="bar"><i style="width:72%"></i></span><span class="s-pct">72</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="about_title">关于 / About</span></h2>
+      <div class="prose">
+        <p data-i18n="about_p1">我是 <strong>席凌飞（Ling）</strong>，男，29 岁，本科毕业于<strong>青岛滨海学院 · 计算机科学与技术</strong>专业，现居杭州，有 9 年测试工程师经验。</p>
+        <p data-i18n="about_p2">工作覆盖 <code>Web3 交易所</code>、<code>链上交易工具</code>、<code>在线教育</code> 与 <code>跨境电商</code> 等多个领域，主导过 BitVenus 数字货币交易平台、DEXX 链上交易工具等项目的测试工作，熟练运用 <code>Jmeter</code> 进行接口与性能测试，<code>Charles / Fiddler</code> 抓包定位问题，<code>Jira / 禅道</code> 管理缺陷全流程。</p>
+        <p data-i18n="about_p3">相信「测试的价值不是找 Bug，而是预防 Bug」——把回归交给自动化，把判断留给人，让质量在交付前被保障。</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="exp_title">工作经历 / Experience</span></h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-company">杭州橙色冰糖科技有限公司</span>
+              <span class="tl-date">2024.09 – 2025.12</span>
+            </div>
+            <div class="tl-role" data-i18n="exp1_role">测试工程师 · DEXX 链上交易工具</div>
+            <p class="tl-desc" data-i18n="exp1_desc">DEXX 是整合 Telegram Bot 与 DEX 的新一代代币交易工具，提供多平台共通的链上综合交易体验。负责需求评审、用例编写、Jmeter 接口与性能测试、MySQL 数据校验、Charles 问题定位，使用 Jira / Lark 跟踪缺陷。</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-company">Brilliance Technology Company Limited</span>
+              <span class="tl-date">2021.06 – 2024.08</span>
+            </div>
+            <div class="tl-role" data-i18n="exp2_role">测试工程师 · BitVenus 数字货币交易平台</div>
+            <p class="tl-desc" data-i18n="exp2_desc">BitVenus 是面向全球的数字货币交易平台，提供币币、法币、合约、杠杆现货等服务。负责需求评审、测试用例编写、Jmeter 接口与性能测试、MySQL 后台数据校验、Charles 抓包定位、Jira 缺陷跟踪。</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-company">北京文德数慧科技发展有限责任公司杭州分公司</span>
+              <span class="tl-date">2019.03 – 2021.05</span>
+            </div>
+            <div class="tl-role" data-i18n="exp3_role">测试工程师 · 大鹏教育</div>
+            <p class="tl-desc" data-i18n="exp3_desc">大鹏教育提供百余门自有版权在线课程。参与需求评审与用例编写，使用 Jmeter 进行接口与性能测试、MySQL 数据查询、Fiddler 抓包定位、禅道缺陷管理、putty 连接 Linux 执行命令，测试完成后输出测试报告。</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-company">杭州橙子信息科技有限公司</span>
+              <span class="tl-date">2017.08 – 2019.02</span>
+            </div>
+            <div class="tl-role" data-i18n="exp4_role">测试工程师 · 折疯了海淘</div>
+            <p class="tl-desc" data-i18n="exp4_desc">折疯了海淘是时尚海淘购物平台。参与需求评审分析，依据需求文档编写测试用例并执行，使用禅道管理缺陷、MySQL 查询数据、Fiddler 抓包定位问题，测试完成后编辑测试报告。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="proj_title">项目经历 / Projects</span></h2>
+      <div class="proj-grid">
+
+        <div class="proj-card">
+          <div class="appicon g-indigo"><span class="ai-glyph">◈</span></div>
+          <div class="proj-body">
+            <div class="proj-title">DEXX <span class="proj-tag" data-i18n="proj1_tag">链上交易工具</span></div>
+            <div class="proj-sub" data-i18n="proj1_sub">2024.09 – 2025.12 · 测试工程师</div>
+            <p class="proj-desc" data-i18n="proj1_desc">新一代代币交易工具，整合 Telegram Bot 与 DEX，提供一键防夹、一键跟买、一键清仓、智能滑点等功能，降低链上交易门槛。</p>
+            <div class="proj-tags">
+              <span data-i18n="pt_jmeter">Jmeter 接口</span><span data-i18n="pt_perf">性能测试</span><span>Charles</span><span>MySQL</span><span>Jira / Lark</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="appicon g-amber"><span class="ai-glyph">฿</span></div>
+          <div class="proj-body">
+            <div class="proj-title">BitVenus <span class="proj-tag" data-i18n="proj2_tag">数字货币交易所</span></div>
+            <div class="proj-sub" data-i18n="proj2_sub">2021.06 – 2024.08 · 测试工程师</div>
+            <p class="proj-desc" data-i18n="proj2_desc">全球性数字货币交易平台，提供币币、法币、合约、杠杆现货等多种数字资产交易服务，面向欧洲、亚洲等市场。</p>
+            <div class="proj-tags">
+              <span data-i18n="pt_jmeter">Jmeter 接口</span><span data-i18n="pt_perf">性能测试</span><span>Charles</span><span>MySQL</span><span>Jira</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="appicon g-teal"><span class="ai-glyph">✎</span></div>
+          <div class="proj-body">
+            <div class="proj-title"><span data-i18n="proj3_name">大鹏教育</span> <span class="proj-tag" data-i18n="proj3_tag">在线教育</span></div>
+            <div class="proj-sub" data-i18n="proj3_sub">2019.03 – 2021.05 · 测试工程师</div>
+            <p class="proj-desc" data-i18n="proj3_desc">在线学习平台，自有版权课程百余门，涵盖平面设计、UI 设计、美术书法、国画短视频等领域。</p>
+            <div class="proj-tags">
+              <span>Jmeter</span><span data-i18n="pt_perf">性能测试</span><span>Fiddler</span><span>MySQL</span><span data-i18n="pt_zentao">禅道</span><span>Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="appicon g-red"><span class="ai-glyph">🛍</span></div>
+          <div class="proj-body">
+            <div class="proj-title"><span data-i18n="proj4_name">折疯了海淘</span> <span class="proj-tag" data-i18n="proj4_tag">跨境电商</span></div>
+            <div class="proj-sub" data-i18n="proj4_sub">2017.08 – 2019.02 · 测试工程师</div>
+            <p class="proj-desc" data-i18n="proj4_desc">时尚海淘购物平台，提供全球正品好货、明星潮品，定位用户的时尚达人专属管家。</p>
+            <div class="proj-tags">
+              <span data-i18n="pt_case">测试用例</span><span>Fiddler</span><span>MySQL</span><span data-i18n="pt_zentao">禅道</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="block">
+      <h2 class="sec-title"><span class="hash">#</span> <span data-i18n="contact_title">联系 / Contact</span></h2>
+      <div class="contact-grid">
+        <div class="contact-card contact-card--qr">
+          <div class="cc-icon">💬</div>
+          <div class="cc-label">WeCom</div>
+          <img class="cc-qr" src="assets/wechat-qr.jpg" alt="企业微信二维码" loading="lazy" width="416" height="417" />
+        </div>
+        <a class="contact-card" href="mailto:785584495@qq.com">
+          <div class="cc-icon">✉</div>
+          <div class="cc-label">Email</div>
+          <div class="cc-value">785584495@qq.com</div>
+        </a>
+        <a class="contact-card" href="https://ling.vn.com/" target="_blank" rel="noopener">
+          <div class="cc-icon">⚡</div>
+          <div class="cc-label">new-api</div>
+          <div class="cc-value">ling.vn.com</div>
+        </a>
+        <div class="contact-card">
+          <div class="cc-icon">📍</div>
+          <div class="cc-label">Location</div>
+          <div class="cc-value" data-i18n="contact_city">杭州</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="f-line" data-i18n="footer_end">— end of file —</span>
+      <span class="f-meta">© <span id="year"></span> <span data-i18n="name">席凌飞</span> · <span data-i18n="footer_built">Built with care</span></span>
+    </footer>
+
+  </main>
+</div>
+
+<!-- ====== STATUSBAR ====== -->
+<footer class="statusbar">
+  <div class="sb-left">
+    <span class="sb-branch"><span class="sb-git"></span> main</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item">UTF-8</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item">Markdown</span>
+  </div>
+  <div class="sb-right">
+    <span class="sb-item">Ln 1, Col 1</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item">Spaces: 2</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-accent">● Ready</span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
