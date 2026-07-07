@@ -92,10 +92,10 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 })();
 
-// ===== Office WiFi: click chip to copy password =====
+// ===== Office WiFi: click chip or password to copy =====
 (function () {
-  const chips = document.querySelectorAll(".wifi-chip");
-  if (!chips.length) return;
+  const copyables = document.querySelectorAll(".wifi-chip, .wifi-pass-val");
+  if (!copyables.length) return;
   const toast = document.createElement("div");
   toast.className = "wifi-toast";
   document.body.appendChild(toast);
@@ -106,23 +106,27 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     clearTimeout(timer);
     timer = setTimeout(() => toast.classList.remove("show"), 1600);
   };
-  chips.forEach((chip) => {
-    chip.addEventListener("click", async () => {
-      const pass = chip.dataset.pass || "";
-      const ssid = chip.textContent.trim();
-      let ok = false;
-      try {
-        await navigator.clipboard.writeText(pass);
-        ok = true;
-      } catch {
-        const ta = document.createElement("textarea");
-        ta.value = pass;
-        document.body.appendChild(ta);
-        ta.select();
-        try { ok = document.execCommand("copy"); } catch {}
-        ta.remove();
-      }
-      showToast(ok ? `${ssid} · 密码已复制` : "复制失败，请手动查看");
+  const doCopy = async (el) => {
+    const pass = el.dataset.pass || "";
+    const label = el.classList.contains("wifi-pass-val") ? "密码" : el.textContent.trim();
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(pass);
+      ok = true;
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = pass;
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand("copy"); } catch {}
+      ta.remove();
+    }
+    showToast(ok ? `${label} · 已复制` : "复制失败，请手动查看");
+  };
+  copyables.forEach((el) => {
+    el.addEventListener("click", () => doCopy(el));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); doCopy(el); }
     });
   });
 })();
