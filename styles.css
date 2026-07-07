@@ -465,10 +465,12 @@ h1, h2 { margin: 0; font-weight: 700; letter-spacing: -0.02em; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; padding-top: 14px; border-top: 1px dashed var(--line2);
 }
+.wifi-pass-left { display: flex; flex-direction: column; gap: 4px; }
 .wifi-pass-label {
   font-family: var(--mono); font-size: 11px; color: var(--faint);
   letter-spacing: 0.1em; text-transform: uppercase;
 }
+.wifi-pass-hint { font-size: 12px; color: var(--faint); }
 .wifi-pass-val {
   font-family: var(--mono); font-size: 15px; font-weight: 600;
   color: var(--accent); padding: 4px 12px; border-radius: 8px;
