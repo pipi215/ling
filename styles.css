@@ -462,20 +462,9 @@ h1, h2 { margin: 0; font-weight: 700; letter-spacing: -0.02em; }
 }
 .wifi-chip::before { content: "📶"; font-size: 14px; }
 .wifi-pass {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 12px; padding-top: 14px; border-top: 1px dashed var(--line2);
-}
-.wifi-pass-left { display: flex; flex-direction: column; gap: 4px; }
-.wifi-pass-label {
-  font-family: var(--mono); font-size: 11px; color: var(--faint);
-  letter-spacing: 0.1em; text-transform: uppercase;
+  padding-top: 14px; border-top: 1px dashed var(--line2);
 }
 .wifi-pass-hint { font-size: 12px; color: var(--faint); }
-.wifi-pass-val {
-  font-family: var(--mono); font-size: 15px; font-weight: 600;
-  color: var(--accent); padding: 4px 12px; border-radius: 8px;
-  background: var(--accent-soft);
-}
 .wifi-toast {
   position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(16px);
   z-index: 9998; padding: 10px 20px; border-radius: 999px;
