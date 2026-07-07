@@ -92,6 +92,19 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 })();
 
+// ===== Location card: toggle address detail =====
+(function () {
+  const toggle = document.getElementById("locToggle");
+  const detail = document.getElementById("locDetail");
+  if (!toggle || !detail) return;
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    toggle.textContent = open ? "查看地址 ▾" : "收起 ▴";
+    detail.hidden = open;
+  });
+})();
+
 // ===== Office WiFi: click chip or password to copy =====
 (function () {
   const copyables = document.querySelectorAll(".wifi-chip, .wifi-pass-val");
