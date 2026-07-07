@@ -14,7 +14,7 @@ toggle.addEventListener("click", () => {
 });
 
 // ===== Tab / file active state on scroll =====
-const sections = ["home", "about", "advantages", "skills", "experience", "projects", "contact"];
+const sections = ["home", "about", "advantages", "skills", "experience", "projects", "contact", "wifi"];
 const tabs = document.querySelectorAll(".tab[data-route]");
 const tfiles = document.querySelectorAll(".tfile[href^='#']");
 
@@ -89,5 +89,40 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   box.addEventListener("click", () => box.classList.remove("open"));
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") box.classList.remove("open");
+  });
+})();
+
+// ===== Office WiFi: click chip to copy password =====
+(function () {
+  const chips = document.querySelectorAll(".wifi-chip");
+  if (!chips.length) return;
+  const toast = document.createElement("div");
+  toast.className = "wifi-toast";
+  document.body.appendChild(toast);
+  let timer;
+  const showToast = (msg) => {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove("show"), 1600);
+  };
+  chips.forEach((chip) => {
+    chip.addEventListener("click", async () => {
+      const pass = chip.dataset.pass || "";
+      const ssid = chip.textContent.trim();
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(pass);
+        ok = true;
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = pass;
+        document.body.appendChild(ta);
+        ta.select();
+        try { ok = document.execCommand("copy"); } catch {}
+        ta.remove();
+      }
+      showToast(ok ? `${ssid} · 密码已复制` : "复制失败，请手动查看");
+    });
   });
 })();
